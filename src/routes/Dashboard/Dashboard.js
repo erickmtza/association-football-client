@@ -9,14 +9,21 @@ export default function Dashboard() {
 
     const displayPlayers = players.map((player,i) => (
         <li key={i}>
-            <p>Name: {player.name}</p>
             <img src={player.img} />
+            <p>Name: {player.name}</p>
+            <p>ATT: {player.att}</p>
+            <p>DEF: {player.def}</p>
+            <p>SPD: {player.spd}</p>
         </li>
     ))
 
     const sample = {
         name: 'Cristiano R.',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGVIKhEXqujrRqWW7CvPMgudWRF2D4YM8PTpHAMtg2uRbPP_PYJg'
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGVIKhEXqujrRqWW7CvPMgudWRF2D4YM8PTpHAMtg2uRbPP_PYJg',
+        att: 91,
+        def: 65,
+        spd: 86,
+        pos: 'S'
     }
 
     return (
