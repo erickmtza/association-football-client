@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
+import './App.css'
 
 import LandingPage from './routes/LandingPage'
 import LoginPage from './routes/LoginPage/LoginPage'
@@ -11,17 +12,17 @@ function App() {
     <section className='App'>
       <header className='app_header'>
         <Link
-            to='/login'>
-            Log in
-          </Link>
-          <Link
-            to='/signup'>
-            Register
-          </Link>
-          <Link
-            to='/Dashboard'>
-            Dashboard
-          </Link>
+          to='/login'>
+          Log in
+        </Link>
+        <Link
+          to='/signup'>
+          Register
+        </Link>
+        <Link
+          to='/Dashboard'>
+          Dashboard
+        </Link>
       </header>
       <main>
         <Switch>
