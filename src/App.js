@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom'
 
+import LandingPage from './routes/LandingPage'
+
 function App() {
   return (
     <main className='App'>
@@ -14,6 +16,12 @@ function App() {
             Register
           </Link>
       </header>
+      <Switch>
+        <Route
+          exact path={'/'}
+          component={LandingPage}
+        />
+      </Switch>
     </main>
   );
 }
