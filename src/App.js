@@ -3,6 +3,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 
 import LandingPage from './routes/LandingPage'
 import LoginPage from './routes/LoginPage/LoginPage'
+import SignUp from './routes/SignUp/SignUp'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
             Log in
           </Link>
           <Link
-            to='/register'>
+            to='/signup'>
             Register
           </Link>
       </header>
@@ -25,6 +26,10 @@ function App() {
         <Route
           path={'/login'}
           component={LoginPage}
+        />
+        <Route
+          path={'/signup'}
+          component={SignUp}
         />
       </Switch>
     </main>
