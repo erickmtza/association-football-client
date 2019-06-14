@@ -9,7 +9,7 @@ export default function SignUp() {
                 <input placeholder="username"></input>
                 <input type="password" placeholder="password"></input>
                 <input type="password" placeholder="re-type password"></input>
-                <label for="team">Name of your Organization</label>
+                <label htmlFor="team">Name of your Organization</label>
                 <input id="team" placeholder="What will be your team name?"></input>
                 <button type="submit">Sign Up</button>
             </fieldset>
