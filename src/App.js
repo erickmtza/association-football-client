@@ -18,6 +18,10 @@ function App() {
             to='/signup'>
             Register
           </Link>
+          <Link
+            to='/Dashboard'>
+            Dashboard
+          </Link>
       </header>
       <main>
         <Switch>
