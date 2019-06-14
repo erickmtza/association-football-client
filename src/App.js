@@ -4,10 +4,11 @@ import { Route, Link, Switch } from 'react-router-dom'
 import LandingPage from './routes/LandingPage'
 import LoginPage from './routes/LoginPage/LoginPage'
 import SignUp from './routes/SignUp/SignUp'
+import Dashboard from './routes/Dashboard/Dashboard'
 
 function App() {
   return (
-    <main className='App'>
+    <section className='App'>
       <header className='app_header'>
         <Link
             to='/login'>
@@ -18,21 +19,31 @@ function App() {
             Register
           </Link>
       </header>
-      <Switch>
-        <Route
-          exact path={'/'}
-          component={LandingPage}
-        />
-        <Route
-          path={'/login'}
-          component={LoginPage}
-        />
-        <Route
-          path={'/signup'}
-          component={SignUp}
-        />
-      </Switch>
-    </main>
+      <main>
+        <Switch>
+          <Route
+            exact path={'/'}
+            component={LandingPage}
+          />
+          <Route
+            path={'/login'}
+            component={LoginPage}
+          />
+          <Route
+            path={'/signup'}
+            component={SignUp}
+          />
+          <Route
+            path={'/dashboard'}
+            component={Dashboard}
+          />
+        </Switch>
+      </main>
+      
+      <footer>
+        Developed by Erick Martinez, 2019
+      </footer>
+    </section>
   );
 }
 
