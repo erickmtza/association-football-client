@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
+
 import Modal from '../../components/Modal/Modal'
+import Team from '../../components/Team/Team'
 
 export default function Dashboard() {
     const [players, setPlayers] = useState([])
     const [modal, setModal] = useState(false)
+    const [filterPlayersPos, setFilterPlayersPos] = useState('')
 
     const addPlayer = (e) => {
         e.preventDefault()
@@ -19,26 +22,6 @@ export default function Dashboard() {
         setModal(false)
     }
 
-    const displayPlayers = players.map((player, i) => (
-        <li key={i}>
-            <img src={player.img} alt={player.name}/>
-            <p>{Math.ceil((Number(player.att) + Number(player.def) + Number(player.spd)) / 3)} AVG.</p>
-            <p>Name: {player.name}</p>
-            <p>ATT: {player.att}</p>
-            <p>DEF: {player.def}</p>
-            <p>SPD: {player.spd}</p>
-        </li>
-    ))
-
-    const sample = {
-        name: 'Cristiano R.',
-        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGVIKhEXqujrRqWW7CvPMgudWRF2D4YM8PTpHAMtg2uRbPP_PYJg',
-        att: 91,
-        def: 65,
-        spd: 86,
-        pos: 'S'
-    }
-
     return (
         <section>
             <h1>Dashboard</h1>
@@ -47,7 +30,7 @@ export default function Dashboard() {
                 <button onClick={() => setModal(true)}>Add Player</button>
 
                 <label htmlFor="filter">Filter:</label>
-                <select id="filter">
+                <select onChange={e => setFilterPlayersPos(e.target.value)} defaultValue="All" id="filter" name="filterPlayers">
                     <option value="All">All</option>
                     <option value="GK">Goalkeeper</option>
                     <option value="CB">Center Back</option>
@@ -71,8 +54,6 @@ export default function Dashboard() {
                             <input placeholder="first/last name" name="name" required></input>
                             <label htmlFor="img">Player Image URL</label>
                             <input type="text" id="img" name="img"></input>
-                            <label htmlFor="date">DOB</label>
-                            <input type="date" id="bday" name="date"></input>
                             <label htmlFor="position">Position:</label>
                             <select id="position" name="pos">
                                 <option value="GK">Goalkeeper</option>
@@ -88,20 +69,29 @@ export default function Dashboard() {
                                 <option value="S">Striker</option>
                                 <option value="Lw, RW">Winger</option>
                             </select>
-                            <label htmlFor="att">ATT</label>
-                            <input type="number" id="att" min="1" max="100" name="att"></input>
-                            <label htmlFor="def">DEF</label>
-                            <input type="number" id="def" min="1" max="100" name="def"></input>
-                            <label htmlFor="spd">SPD</label>
-                            <input type="number" id="spd" name="spd"></input>
-
+                            <p>ATTRIBUTES</p>
+                            <ul>
+                                <li>
+                                    <label htmlFor="att">ATT</label>
+                                    <input type="number" id="att" min="1" max="100" name="att" required />
+                                </li>
+                                <li>
+                                    <label htmlFor="def">DEF</label>
+                                    <input type="number" id="def" min="1" max="100" name="def" required />
+                                </li>
+                                <li>
+                                    <label htmlFor="spd">SPD</label>
+                                    <input type="number" id="spd" min="1" max="100" name="spd" required />
+                                </li>
+                            </ul>
                             <button type="submit">Add Player</button>
                         </fieldset>
                     </form>
                 </Modal>}
-                <ul>
-                    {displayPlayers}
-                </ul>
+                <Team
+                    players={players}
+                    filterPlayersPos={filterPlayersPos}
+                />
             </section>
 
         </section>
