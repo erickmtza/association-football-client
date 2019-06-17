@@ -43,7 +43,7 @@ export default function Dashboard() {
                     <option value="LM, RM">Left/Right Midfielder</option>
                     <option value="CF">Center Forward</option>
                     <option value="S">Striker</option>
-                    <option value="Lw, RW">Winger</option>
+                    <option value="LW, RW">Winger</option>
                 </select>
                 {modal && <Modal>
                     <span onClick={() => setModal(false)}>CLOSE</span>
@@ -67,7 +67,7 @@ export default function Dashboard() {
                                 <option value="LM, RM">Left/Right Midfielder</option>
                                 <option value="CF">Center Forward</option>
                                 <option value="S">Striker</option>
-                                <option value="Lw, RW">Winger</option>
+                                <option value="LW, RW">Winger</option>
                             </select>
                             <p>ATTRIBUTES</p>
                             <ul>
