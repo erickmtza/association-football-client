@@ -4,8 +4,9 @@ import config from '../config'
 const ArticleApiService = {
   getAllPlayers() {
     return fetch(`${config.API_ENDPOINT}/players`, {
-      headers: {
-      },
+        headers: {
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
+        },
     })
       .then(res =>
         (!res.ok)
