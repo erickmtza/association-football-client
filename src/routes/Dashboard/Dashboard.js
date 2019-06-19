@@ -1,12 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
 import Modal from '../../components/Modal/Modal'
 import Team from '../../components/Team/Team'
+
+import PlayersContext from '../../context/PlayersContext'
 
 export default function Dashboard() {
     const [players, setPlayers] = useState([])
     const [modal, setModal] = useState(false)
     const [filterPlayersPos, setFilterPlayersPos] = useState('')
+
+    const value = useContext(PlayersContext)
 
     const addPlayer = (e) => {
         e.preventDefault()
