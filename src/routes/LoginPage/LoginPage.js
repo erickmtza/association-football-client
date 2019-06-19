@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
+import LoginForm from '../../components/LoginForm/LoginForm'
 
-export default function LoginPage() {
+export default class LoginPage extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {},
+    },
+  }
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/Dashboard'
+    history.push(destination)
+  }
+
+  render() {
     return (
-        <form>
-            <fieldset>
-            <legend>LOGIN</legend>
-
-            <input placeholder="username"></input>
-            <input type="password" placeholder="password"></input>
-            <button>Sign-In</button>
-            </fieldset>
-        </form>
+      <section className='LoginPage'>
+        <h2>Login</h2>
+        <LoginForm
+          onLoginSuccess={this.handleLoginSuccess}
+        />
+      </section>
     )
+  }
 }
