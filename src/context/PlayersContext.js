@@ -12,6 +12,7 @@ export default PlayersContext
 export class PlayersProvider extends Component {
   state = {
     error: null,
+    players: [],
     user_id: '',
     signedIn: false,
     addPlayer: () => {},
@@ -32,7 +33,7 @@ export class PlayersProvider extends Component {
 
   render() {
     const value = {
-      players: this.setState.players,
+      players: this.state.players,
       addPlayer: this.addPlayer,
       signedInUpdate: this.signedInUpdate,
       user_id: this.state.user_id
