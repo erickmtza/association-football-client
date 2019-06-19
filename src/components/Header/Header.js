@@ -14,7 +14,9 @@ export default class Header extends Component {
 
   handleLogoutClick = () => {
     TokenService.clearAuthToken()
-    this.context.signedInUpdate(false)  
+    this.context.signedInUpdate(false)
+    this.context.initiatePlayers([])
+    this.context.teamnameUpdate('')
   }
 
   state = {
