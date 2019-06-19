@@ -1,17 +1,36 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 
 import Modal from '../../components/Modal/Modal'
 import Team from '../../components/Team/Team'
 
 import PlayersContext from '../../context/PlayersContext'
 import AuthApiService from '../../services/players-api-service'
-import TokenService from '../../services/token-service'
 
 export default function Dashboard() {
     const [modal, setModal] = useState(false)
     const [filterPlayersPos, setFilterPlayersPos] = useState('')
+    const [effectWatch, setEffectWatch] = useState(false)
+    const [error, setError] = useState('')
 
     const value = useContext(PlayersContext)
+
+    useEffect(() => {
+        console.log('Effect!!')
+
+        if(value.players.length === 0) {
+            AuthApiService.getAllPlayers()
+                .then(res => {
+                    console.log(res)
+                    value.initiatePlayers(res)
+                    value.teamnameUpdate(res[0].user.teamname)
+                })
+                .catch(res => {
+                    setError(res.error)
+                    console.log(error)
+                })
+        }
+        
+    }, [effectWatch])
 
     const addPlayer = (e) => {
         e.preventDefault()
@@ -26,14 +45,17 @@ export default function Dashboard() {
 
         AuthApiService.postPlayer(player)
             .then(res => {
-                TokenService.saveAuthToken(res.authToken)
+                if(value.players.length === 0) {
+                    setEffectWatch(true)
+                }
+
+                value.addPlayer(player)
             })
             .catch(res => {
-                // this.setState({ error: res.error })
+                setError(res.error)
+                console.log(error)
             })
 
-        console.log(e.target.img.value)
-        value.addPlayer(player)
         setModal(false)
     }
 
@@ -43,7 +65,7 @@ export default function Dashboard() {
         <section>
             <h1>Dashboard</h1>
             <section>
-                <p>Team *name</p>
+                <p>{value.teamname ? `Club Name - ${value.teamname}` : `Add players to your Club`}</p>
                 <button onClick={() => setModal(true)}>Add Player</button>
 
                 <label htmlFor="filter">Filter:</label>
