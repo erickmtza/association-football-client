@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
 
-export default function SignUp() {
+export default class RegistrationPage extends Component {
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  }
+
+  handleRegistrationSuccess = user => {
+    const { history } = this.props
+    history.push('/login')
+  }
+
+  render() {
     return (
-        <form>
-            <fieldset>
-                <legend>CREATE AN ACCOUNT</legend>
-
-                <input placeholder="username"></input>
-                <input type="password" placeholder="password"></input>
-                <input type="password" placeholder="re-type password"></input>
-                <label htmlFor="team">Name of your Organization</label>
-                <input id="team" placeholder="What will be your team name?"></input>
-                <button type="submit">Sign Up</button>
-            </fieldset>
-        </form>
+      <section className='RegistrationPage'>
+        <SignUpForm
+          onRegistrationSuccess={this.handleRegistrationSuccess}
+        />
+      </section>
     )
+  }
 }
