@@ -93,7 +93,7 @@ export default function Dashboard() {
                     </form>
                 </Modal>}
                 <Team
-                    players={players}
+                    players={value.players}
                     filterPlayersPos={filterPlayersPos}
                 />
             </section>
