@@ -7,6 +7,8 @@ import TokenService from '../../services/token-service'
 
 import PlayersContext from '../../context/PlayersContext'
 
+import Logo from '../../imgs/Soccer.svg'
+
 export default class Header extends Component {
     static contextType = PlayersContext;
 
@@ -62,7 +64,7 @@ export default class Header extends Component {
         <nav className='Header'>
             <h1>
             <Link to='/'>
-                Association Football
+                <img src={Logo} alt="association football" />
             </Link>
             </h1>
             {!!TokenService.hasAuthToken()
