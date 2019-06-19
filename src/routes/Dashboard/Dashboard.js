@@ -4,9 +4,10 @@ import Modal from '../../components/Modal/Modal'
 import Team from '../../components/Team/Team'
 
 import PlayersContext from '../../context/PlayersContext'
+import AuthApiService from '../../services/players-api-service'
+import TokenService from '../../services/token-service'
 
 export default function Dashboard() {
-    const [players, setPlayers] = useState([])
     const [modal, setModal] = useState(false)
     const [filterPlayersPos, setFilterPlayersPos] = useState('')
 
@@ -22,9 +23,21 @@ export default function Dashboard() {
             spd: e.target.spd.value,
             pos: e.target.pos.value,
         }
-        setPlayers([...players, player])
+
+        AuthApiService.postPlayer(player)
+            .then(res => {
+                TokenService.saveAuthToken(res.authToken)
+            })
+            .catch(res => {
+                // this.setState({ error: res.error })
+            })
+
+        console.log(e.target.img.value)
+        value.addPlayer(player)
         setModal(false)
     }
+
+    
 
     return (
         <section>
