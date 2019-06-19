@@ -20,7 +20,7 @@ function App() {
       </header>
       <main>
         <Switch>
-          <PublicOnlyRoute
+          <Route
             exact path={'/'}
             component={LandingPage}
           />
