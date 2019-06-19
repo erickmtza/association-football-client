@@ -47,7 +47,7 @@ export default class LoginPage extends React.Component {
                     <button>Sign-In</button>
                     
                     <div role='alert'>
-                        {error && <p className='red'>{error}</p>}
+                        {!!error && <p className='red'>{error}</p>}
                     </div>
                 </fieldset>
             </form>
