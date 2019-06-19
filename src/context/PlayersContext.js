@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 const PlayersContext = React.createContext({
   players: [],
-  user_id: '',
+  teamname: '',
   signedIn: false,
-  addPlayer: () => {}
+  addPlayer: () => {},
+  initiatePlayers: () => {},
+  teamnameUpdate: () => {}
 })
 
 export default PlayersContext
@@ -13,9 +15,8 @@ export class PlayersProvider extends Component {
   state = {
     error: null,
     players: [],
-    user_id: '',
     signedIn: false,
-    addPlayer: () => {},
+    teamname: ''
   };
 
 
@@ -31,12 +32,22 @@ export class PlayersProvider extends Component {
     ]})
   }
 
+  initiatePlayers = players => {
+      this.setState({ players })
+  }
+
+  teamnameUpdate = teamname => {
+    this.setState({ teamname })
+  }
+
   render() {
     const value = {
       players: this.state.players,
       addPlayer: this.addPlayer,
       signedInUpdate: this.signedInUpdate,
-      user_id: this.state.user_id
+      initiatePlayers: this.initiatePlayers,
+      teamname: this.state.teamname,
+      teamnameUpdate: this.teamnameUpdate
     }
     return (
       <PlayersContext.Provider value={value}>
