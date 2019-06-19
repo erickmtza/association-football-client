@@ -1,46 +1,43 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import './App.css'
 
 import LandingPage from './routes/LandingPage'
 import LoginPage from './routes/LoginPage/LoginPage'
 import SignUp from './routes/SignUp/SignUp'
 import Dashboard from './routes/Dashboard/Dashboard'
+import Header from './components/Header/Header'
+
+import PublicOnlyRoute from './components/Utils/PublicOnlyRoute'
+import PrivateRoute from './components/Utils/PrivateRoute'
+import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 
 function App() {
   return (
     <section className='App'>
       <header className='app_header'>
-        <Link
-          to='/login'>
-          Log in
-        </Link>
-        <Link
-          to='/signup'>
-          Register
-        </Link>
-        <Link
-          to='/Dashboard'>
-          Dashboard
-        </Link>
+        <Header />
       </header>
       <main>
         <Switch>
-          <Route
+          <PublicOnlyRoute
             exact path={'/'}
             component={LandingPage}
           />
-          <Route
+          <PublicOnlyRoute
             path={'/login'}
             component={LoginPage}
           />
-          <Route
-            path={'/signup'}
+          <PublicOnlyRoute
+            path={'/register'}
             component={SignUp}
           />
-          <Route
+          <PrivateRoute
             path={'/dashboard'}
             component={Dashboard}
+          />
+          <Route
+            component={NotFoundPage}
           />
         </Switch>
       </main>
