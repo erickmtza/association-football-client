@@ -1,4 +1,4 @@
 export default {
-    API_ENDPOINT: 'http://localhost:8000/api',
+    API_ENDPOINT: 'https://nameless-sands-23830.herokuapp.com/api',
     TOKEN_KEY: 'association-football-auth-token',
   }
