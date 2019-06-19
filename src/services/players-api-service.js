@@ -2,7 +2,7 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const ArticleApiService = {
-  getPlayers() {
+  getAllPlayers() {
     return fetch(`${config.API_ENDPOINT}/players`, {
       headers: {
       },
@@ -25,17 +25,14 @@ const ArticleApiService = {
           : res.json()
       )
   },
-  postPlayer(player_id, text) {
+  postPlayer(player) {
     return fetch(`${config.API_ENDPOINT}/players`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        user_id: player_id,
-        text,
-      }),
+      body: JSON.stringify(player),
     })
       .then(res =>
         (!res.ok)
