@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function PlayerCard({ player, id }) {
-    console.log(id)
+export default function PlayerCard({ player }) {
     return (
         <li key={player.id}>
             <img src={player.img} alt={player.name}/>

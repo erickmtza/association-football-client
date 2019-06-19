@@ -9,12 +9,14 @@ export default function Team({players, filterPlayersPos}) {
             return players.map((player) => (
                 <PlayerCard
                     player={player}
+                    key={player.id}
                 />
             ))
         } else {
-            return players.filter((player) => player.pos === filterPlayersPos).map((player, i) => (
+            return players.filter((player) => player.pos === filterPlayersPos).map((player) => (
                 <PlayerCard
                     player={player}
+                    key={player.id}
                 />
             ))
         }
