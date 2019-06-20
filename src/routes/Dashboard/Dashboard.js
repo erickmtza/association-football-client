@@ -15,18 +15,15 @@ export default function Dashboard() {
     const value = useContext(PlayersContext)
 
     useEffect(() => {
-        console.log('Effect!!')
 
         if(value.players.length === 0) {
             AuthApiService.getAllPlayers()
                 .then(res => {
-                    console.log(res)
                     value.initiatePlayers(res)
                     value.teamnameUpdate(res[0].user.teamname)
                 })
                 .catch(res => {
                     setError(res.error)
-                    console.log(error)
                 })
         }
         
