@@ -68,23 +68,25 @@ export default function Dashboard() {
 
                 <section className="interactives">
                     <button className="add-player-btn in-btn" onClick={() => setModal(true)}>Add Player</button>
-
-                    <label htmlFor="filter">Filter:</label>
-                    <select className="filter-player-btn in-btn" onChange={e => setFilterPlayersPos(e.target.value)} defaultValue="All" id="filter" name="filterPlayers">
-                        <option value="All">All</option>
-                        <option value="GK">Goalkeeper</option>
-                        <option value="CB">Center Back</option>
-                        <option value="LB, RB">Fullback</option>
-                        <option value="LWB, RWB">Wingback</option>
-                        <option value="SW">Sweeper</option>
-                        <option value="DM">Defensive Midfielder</option>
-                        <option value="CM">Central Midfielder</option>
-                        <option value="AM">Attacking Midfielder</option>
-                        <option value="LM, RM">Left/Right Midfielder</option>
-                        <option value="CF">Center Forward</option>
-                        <option value="S">Striker</option>
-                        <option value="LW, RW">Winger</option>
-                    </select>
+                    <section>
+                        <label className="filter-label" htmlFor="filter">Filter:</label>
+                        <select className="filter-player-btn in-btn" onChange={e => setFilterPlayersPos(e.target.value)} defaultValue="All" id="filter" name="filterPlayers">
+                            <option value="All">All</option>
+                            <option value="GK">Goalkeeper</option>
+                            <option value="CB">Center Back</option>
+                            <option value="LB, RB">Fullback</option>
+                            <option value="LWB, RWB">Wingback</option>
+                            <option value="SW">Sweeper</option>
+                            <option value="DM">Defensive Midfielder</option>
+                            <option value="CM">Central Midfielder</option>
+                            <option value="AM">Attacking Midfielder</option>
+                            <option value="LM, RM">Left/Right Midfielder</option>
+                            <option value="CF">Center Forward</option>
+                            <option value="S">Striker</option>
+                            <option value="LW, RW">Winger</option>
+                        </select>
+                    </section>
+                    
                 </section>
                 
                 {modal && <Modal>
