@@ -12,11 +12,11 @@ Landing Page:
 
 Login on mobile:
 
-![Signin](/src/imgs/SignInMobile.PNG)
+![Signin](/src/imgs/SignInMobile.png)
 
 Dashboard view (Mobile):
 
-![Dashboard](/src/imgs/DashboardMobile.PNG)
+![Dashboard](/src/imgs/DashboardMobile.png)
 
 ## Built With
 ### Front End
