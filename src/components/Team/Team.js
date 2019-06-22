@@ -2,6 +2,8 @@ import React from 'react'
 
 import PlayerCard from '../../components/PlayerCard/PlayerCard'
 
+import './Team.css'
+
 export default function Team({players, filterPlayersPos}) {
 
     const filter = () => {
@@ -23,7 +25,7 @@ export default function Team({players, filterPlayersPos}) {
     }
 
     return (
-        <ul>
+        <ul className="team-container">
             {filter()}
         </ul>
     )
