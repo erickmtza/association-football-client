@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import TokenService from '../../services/token-service'
 
-// import './Header.css'
+import './Header.css'
 
 import PlayersContext from '../../context/PlayersContext'
 
@@ -31,11 +31,13 @@ export default class Header extends Component {
     return (
         <div className='Header__logged-in'>
             <Link
+                className="Header-Link logout"
                 onClick={this.handleLogoutClick}
                 to='/'>
                 Logout
             </Link>
             <Link
+                className="Header-Link"
                 to='/Dashboard'
             >
                 Dashboard
@@ -48,11 +50,13 @@ export default class Header extends Component {
     return (
         <div className='Header__not-logged-in'>
             <Link
+                className="Header-Link register-link"
                 to='/register'
             >
                 Register
             </Link>
             <Link
+                className="Header-Link"
                 to='/login'
             >
                 Log in
@@ -64,11 +68,9 @@ export default class Header extends Component {
   render() {
     return (
         <nav className='Header'>
-            <h1>
             <Link to='/'>
-                <img src={Logo} alt="association football" />
+                <img className="logo" src={Logo} alt="association football" />
             </Link>
-            </h1>
             {!!TokenService.hasAuthToken()
             ? this.renderLogoutLink()
             : this.renderLoginLink()}
