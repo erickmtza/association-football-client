@@ -1,0 +1,22 @@
+.player-card {
+    text-align: center;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    margin-top: 25px;
+}
+
+.player-img {
+    max-width: 300px;
+    max-height: 150px;
+}
+
+ul {
+    padding: 0;
+    
+}
+
+li {
+    list-style: none;
+}
