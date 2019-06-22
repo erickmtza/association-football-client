@@ -11,7 +11,7 @@
 
 .dashboard-title {
     margin: 0;
-    padding-top: 55px;
+    padding-top: 62px;
     color: white;
     text-align: center;
 }
@@ -72,7 +72,7 @@
 }
 
 .first {
-    padding-top: 30px; 
+    margin-top: 30px; 
 }
 
 .player-info-input {
@@ -117,4 +117,5 @@
 .add-player-legend {
     position: absolute;
     left: 0;
+    top: 10px;
 }
