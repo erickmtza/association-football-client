@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 
+import './SignUp.css'
+
 export default class RegistrationPage extends Component {
   static defaultProps = {
     history: {

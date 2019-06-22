@@ -1,0 +1,12 @@
+.RegistrationPage {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+        ), url(https://static.dezeen.com/uploads/2018/06/Luzhniki-Stadium-Speech-world-cup-2018-russia_dezeen_2364_hero-1704x959.jpg);
+    background-repeat: no-repeat;
+}
