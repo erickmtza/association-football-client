@@ -1,0 +1,117 @@
+.dashboard {
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+        ), url(http://media1.s-nbcnews.com/i/MSNBC/Components/Slideshows/_production/ss-140611-brazil-world-cup-stadiums/ss-140611-brazil-world-cup-stadiums-01.jpg);
+    background-repeat: no-repeat;
+}
+
+.dashboard-title {
+    margin: 0;
+    padding-top: 55px;
+    color: white;
+    text-align: center;
+}
+
+.teamname {
+    color: white;
+    text-align: center;
+}
+
+.interactives {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+
+
+.in-btn {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.in-btn:hover {
+    cursor: pointer;
+    border: 2px solid rgb(0, 217, 255);
+    color: rgb(0, 217, 255);
+}
+
+.close-modal {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+}
+
+.close-modal:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.add-player-form {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.add-player-field {
+    width: 100%;
+    padding-top: 0;
+}
+
+.first {
+    padding-top: 30px; 
+}
+
+.player-info-input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    text-align: center;
+    color: white;
+}
+
+#position, .first, #img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.labelName {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.attr {
+    margin-top: 3px;
+}
+
+.addPlayer-btn {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 5px;
+    width: 85px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addPlayer-btn:hover {
+    cursor: pointer;
+    color: black;
+    background: white;
+}
+
+.add-player-legend {
+    position: absolute;
+    left: 0;
+}
