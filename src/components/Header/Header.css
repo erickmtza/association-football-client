@@ -10,7 +10,8 @@
     max-width: 50px;
     border-radius: 50%;
     background: white;
-    padding: 5px;
+    padding: 3px;
+    margin-top: 2px;
 }
 
 .Header-Link {
