@@ -2,18 +2,24 @@ import React from 'react'
 
 import AuthApiService from '../../services/auth-api-service'
 
+import './SignUpForm.css'
+import Logo from '../../imgs/ajax-loader.gif'
+
 export default class RegistrationForm extends React.Component {
     static defaultProps = {
         onRegistrationSuccess: () => {}
       }
     
-      state = { error: null }
+      state = {
+        error: null,
+        loader: false
+      }
     
       handleSubmit = ev => {
         ev.preventDefault()
         const { teamname, username, password } = ev.target
     
-        this.setState({ error: null })
+        this.setState({ error: null, loader: true })
         
         AuthApiService.postUser({
           username: username.value,
@@ -27,23 +33,23 @@ export default class RegistrationForm extends React.Component {
             this.props.onRegistrationSuccess()
           })
             .catch(res => {
-              this.setState({ error: res.error })
+              this.setState({ error: res.error, loader: false })
             })
       }
 
     render() {
         const { error } = this.state
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form className="SignUpForm" onSubmit={this.handleSubmit}>
                 <fieldset>
-                    <legend>CREATE AN ACCOUNT</legend>
+                    <legend className="create-legend">CREATE AN ACCOUNT</legend>
 
-                    <input placeholder="username" name="username" />
-                    <input type="password" placeholder="password" name="password" />
+                    <input className="register username" placeholder="username" name="username" required/>
+                    <input className="register paswword" type="password" placeholder="password" name="password" required/>
                     <label htmlFor="team">Name of your Organization</label>
-                    <input id="team" placeholder="What will be your team name?" name="teamname" />
+                    <input className="register teamname" id="team" placeholder="Club's name?" name="teamname" required/>
 
-                    <button type="submit">Sign Up</button>
+                    <button className="submit-offline" type="submit">{!this.state.loader ? "Sign Up" : <img src={Logo} alt="loading" />}</button>
                     <div role='alert'>
                         {error && <p className='red'>{error}</p>}
                     </div>
