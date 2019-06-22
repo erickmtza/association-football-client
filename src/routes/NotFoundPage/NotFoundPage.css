@@ -1,0 +1,22 @@
+.not-found {
+    height: 90vh;
+    color: white;
+    background: black;
+    padding-top: 90px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.page-not-found {
+    margin: 0;
+}
+
+.home-text {
+    color: white;
+}
+
+.home-text:hover {
+    cursor: pointer;
+    color: rgb(43, 155, 175);
+}
