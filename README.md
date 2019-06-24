@@ -37,6 +37,10 @@ Dashboard view (Mobile):
 * Mocha & Chai (testing)
 - Repo for API: [GitHub Repo](https://github.com/erickmtza/association-football-api)
 
+### Authentication
+* Bcryptjs
+* JsonWebTokens
+
 ## Features
 
 * Create an account to store your players using the Dashboard
